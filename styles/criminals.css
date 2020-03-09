@@ -1,0 +1,36 @@
+.criminalsList {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-evenly;
+   
+}
+
+h2 {
+    color: midnightblue;
+}
+
+h4 {
+    text-decoration: underline;    
+}
+
+.criminal__Profile {
+    border: 1px solid gray;
+    font-family: 'Share Tech Mono', monospace;
+    margin: 2.5px;
+    padding: 5px;
+    text-align: center;
+    width: 20%;
+}
+
+.criminal--incarceration {
+    background: midnightblue;
+    color: white;
+}
+
+ul {
+    text-align: left;
+}
+
+
+
