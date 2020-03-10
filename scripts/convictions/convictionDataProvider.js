@@ -9,7 +9,6 @@ export const fetchConvictionsData = () => {
     )
 }
 
-
 export const copyOfConvictionsArray = () => {
     return convictionsArray.slice()
 }
