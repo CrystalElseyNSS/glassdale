@@ -1,0 +1,44 @@
+#criminalNoteForm {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    font-family: 'Share Tech Mono', monospace;
+    margin: 20px auto;
+    width: 70%;
+}
+
+.input--field {
+    border: 1px solid gray;
+    width: 60%;
+}
+
+.input--label {
+    font-size: larger;
+    width: 30%;
+}
+
+.noteForm {
+    background: lightgrey;
+    border: 1px solid gray;
+    width: 80%;
+}
+
+.noteForm__input {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    margin: auto;
+    padding: 20px;
+    width: 100%;
+}
+
+.button--save {
+    background-color: midnightblue;
+    border: 10px outset midnightblue;
+    color: whitesmoke;
+    font-family: 'Share Tech Mono', monospace;
+    font-size: larger;
+    height: 50px;
+    margin: 0px auto 30px auto;
+    width: 100px;
+}

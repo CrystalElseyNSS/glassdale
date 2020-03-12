@@ -5,3 +5,6 @@ fetchCriminalsData().then(criminalMaker)
 import { fetchConvictionsData } from './convictions/convictionDataProvider.js'
 import convictionSelectorMaker from './convictions/ConvictionSelectorGenerator.js'
 fetchConvictionsData().then(convictionSelectorMaker)
+
+import { NoteForm } from './notes/NoteForm.js'
+NoteForm()
