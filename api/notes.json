@@ -1,10 +1,9 @@
 {
-    "notes": [
-        {
-            "id" : 1,
-            "date" : "date",
-            "criminal" : "name",
-            "text" : "text"
-        }
-    ]
+  "notes": [
+    {
+      "note": "Weak alibi",
+      "criminal": "Michel Stamm",
+      "id": 1
+    }
+  ]
 }
