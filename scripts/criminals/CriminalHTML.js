@@ -45,16 +45,14 @@ export const criminalHTML = (criminalObject) => {
                 <p>Arresting Officer: ${criminalObject.arrestingOfficer}</p>
             </div>
 
-            <div class="criminal--knownAssociates">
-                <h4>KNOWN ASSOCIATES</h4>
-                <p>${knownAssociatesLoop(criminalObject.known_associates)}</p>
-            </div>
-
             <div class="criminal--contactInfo">
                 <h4>CONTACT INFO</h4>
                 <p>Phone: ${criminalObject.phone}</p>
                 <p>Address: ${criminalObject.address}</p>
             </div>
+
+            <button id="associates--${criminalObject.id}" class="associatesButton">View Known Associates</button>
+            
 
         </section>
     `
