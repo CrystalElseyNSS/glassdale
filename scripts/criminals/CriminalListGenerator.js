@@ -1,9 +1,20 @@
-const eventHub = document.querySelector(".container")
-
 import { criminalHTML } from "./CriminalHTML.js";
 import { copyOfCriminalsArray } from "./criminalDataProvider.js";
 
 const contentTarget = document.querySelector('.criminalsList');
+const eventHub = document.querySelector(".container")
+
+contentTarget.addEventListener("click", clickEvent => {
+    if (clickEvent.target.id.startsWith("associates--")) {
+        const [prefix, criminalID] = clickEvent.target.id.split("--")
+        const showAssociatesEvent = new CustomEvent("associatesButtonClicked", {
+            detail: {
+                chosenCriminal: criminalID
+            }
+        })
+        eventHub.dispatchEvent(showAssociatesEvent)
+    }
+})
 
 export const criminalMaker = () => {
     const newCriminalArray = copyOfCriminalsArray();

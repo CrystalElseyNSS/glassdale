@@ -1,3 +1,14 @@
+.associatesButton {
+    background-color: lightgray;
+    border: 3px outset gray;
+    color: gray;
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 16px;
+    text-transform: uppercase;
+    font-weight: bolder;
+    width: 80%;
+}
+
 .criminalsList {
     display: flex;
     flex-wrap: wrap;
@@ -26,10 +37,6 @@ h4 {
 .criminal--incarceration {
     background: midnightblue;
     color: white;
-}
-
-.criminal--contactInfo {
-    background-color: gray;
 }
 
 ul {
