@@ -4,7 +4,6 @@ const contentTarget = document.querySelector(".KnownAssociatesContainer")
 const eventHub = document.querySelector(".container")
 
 eventHub.addEventListener("associatesButtonClicked", CustomEvent => {
-    console.log("cheezits are awesome")
     const criminalID = CustomEvent.detail.chosenCriminal
     const criminalsArray = copyOfCriminalsArray()
     const foundCriminal = criminalsArray.find(

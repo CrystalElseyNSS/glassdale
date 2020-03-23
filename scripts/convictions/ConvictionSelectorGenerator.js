@@ -30,5 +30,3 @@ export const convictionSelectorMaker = () => {
     }
     renderFunction(newConvictionsArray)
 }
-
-export default convictionSelectorMaker
