@@ -1,13 +1,13 @@
 const eventHub = document.querySelector(".container")
 
-import { copyOfConvictionsArray } from "./convictionDataProvider.js";
+import { useConvictions } from "./convictionDataProvider.js";
 
-const contentTarget = document.querySelector('#selector__crime');
+const contentTarget = document.querySelector('#filter__crime');
 
 contentTarget.addEventListener("change", changeEvent => {
     if (changeEvent.target.id === "crimeSelectList") {
         const selectedCrime = changeEvent.target.value
-        const crimeChosenEvent = new CustomEvent("crimeSelected", {
+        const crimeChosenEvent = new CustomEvent("crimeChosen", {
             detail: {
                 crime: selectedCrime
             }
@@ -17,7 +17,7 @@ contentTarget.addEventListener("change", changeEvent => {
 })
 
 export const convictionSelectorMaker = () => {
-    const newConvictionsArray = copyOfConvictionsArray();
+    const newConvictionsArray = useConvictions();
     const renderFunction = (convictionsCollection) => {
         contentTarget.innerHTML = `
             <select id="crimeSelectList">

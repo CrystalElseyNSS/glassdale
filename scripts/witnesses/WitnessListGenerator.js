@@ -1,17 +1,31 @@
-import { useWitnesses } from './witnessDataProvider.js';
+import { useWitnesses, fetchWitnesses } from './witnessDataProvider.js'
+import { WitnessHTML } from './Witness.js'
 
-const contentTarget = document.querySelector('.WitnessStatementContainer')
+const contentTarget = document.querySelector('.witnessContainer')
+const eventHub = document.querySelector(".container")
+let elementIsVisible = false
 
-// renderWitnesses: loops over witnesses, converts to HTML, puts them on DOM
+eventHub.addEventListener("witnessButtonClicked", CustomEvent => {
+    elementIsVisible = !elementIsVisible
+    if (elementIsVisible) {
+        contentTarget.classList.remove("invisible")
+        renderWitnesses()
+    }
+    else {
+        contentTarget.classList.add("invisible")
+    }
+})
+
 const renderWitnesses = () => {
-    const witnesses = useWitnesses() 
-    // loop over the array of witnesses 
-
-    // for each individual witness, create HTML and put it on the DOM
+    fetchWitnesses().then(
+        () => {
+            const allWitnesses = useWitnesses()
+            contentTarget.innerHTML = allWitnesses.map(
+                (currentStatementObj) => {
+                    const statementHTML = WitnessHTML(currentStatementObj)
+                    return statementHTML
+                }
+            ).join("")
+        }
+    )
 }
-
-// WitnessList: function that invokes render
-const WitnessList = () => {
-    renderWitnesses(witnesses)
-}
-

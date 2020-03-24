@@ -1,14 +1,15 @@
-import { saveNote } from "./NoteProvider.js"
+import { saveNote } from "./noteDataProvider.js"
 
-const contentTarget = document.querySelector("#criminalNoteForm")
+const contentTarget = document.querySelector(".noteFormContainer")
 
 contentTarget.addEventListener("click", clickEvent => {
     if (clickEvent.target.id === "saveNote") {
-        const noteText = document.querySelector("#input--note").value 
         const criminalName = document.querySelector("#input--criminal").value 
+        const noteText = document.querySelector("#input--note").value 
         const newNote = {
-                note: noteText,
-                criminal: criminalName
+                date: Date.now(),
+                criminal: criminalName,
+                note: noteText,  
             }
         saveNote(newNote)
     }

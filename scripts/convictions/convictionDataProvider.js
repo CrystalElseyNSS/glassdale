@@ -1,6 +1,6 @@
 let convictionsArray = []
 
-export const fetchConvictionsData = () => {
+export const fetchConvictions = () => {
     return fetch("https://criminals.glassdale.us/crimes")
         .then(response => response.json())
         .then(parsedConvictionsArray => {
@@ -9,6 +9,6 @@ export const fetchConvictionsData = () => {
     )
 }
 
-export const copyOfConvictionsArray = () => {
+export const useConvictions = () => {
     return convictionsArray.slice()
 }

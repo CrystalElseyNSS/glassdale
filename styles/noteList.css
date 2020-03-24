@@ -1,0 +1,12 @@
+.noteListContainer {
+    flex: 1;
+}
+
+.savedNote {
+    border: 1px solid midnightblue;
+    background-color: lightgray;
+}
+
+.invisible {
+    display: none;
+}
