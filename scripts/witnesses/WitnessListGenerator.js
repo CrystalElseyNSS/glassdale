@@ -5,7 +5,7 @@ const contentTarget = document.querySelector('.witnessContainer')
 const eventHub = document.querySelector(".container")
 let elementIsVisible = false
 
-eventHub.addEventListener("witnessButtonClicked", CustomEvent => {
+eventHub.addEventListener("witnessButtonClicked", customEvent => {
     elementIsVisible = !elementIsVisible
     if (elementIsVisible) {
         contentTarget.classList.remove("invisible")
