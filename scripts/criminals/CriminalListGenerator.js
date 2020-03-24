@@ -1,8 +1,9 @@
-import { criminalHTML } from "./CriminalHTML.js";
-import { copyOfCriminalsArray } from "./criminalDataProvider.js";
+import { criminalHTML } from "./CriminalHTML.js"
+import { useCriminals, fetchCriminals } from "./criminalDataProvider.js"
 
-const contentTarget = document.querySelector('.criminalsList');
+const contentTarget = document.querySelector('.criminalContainer')
 const eventHub = document.querySelector(".container")
+let elementIsVisible = true
 
 contentTarget.addEventListener("click", clickEvent => {
     if (clickEvent.target.id.startsWith("associates--")) {
@@ -16,32 +17,36 @@ contentTarget.addEventListener("click", clickEvent => {
     }
 })
 
-export const criminalMaker = () => {
-    const newCriminalArray = copyOfCriminalsArray();
-    for (const newCriminalObject of newCriminalArray) {
-       const newCriminalHTMLString = criminalHTML(newCriminalObject);
-       contentTarget.innerHTML += newCriminalHTMLString
+eventHub.addEventListener("witnessButtonClicked", CustomEvent => {
+    elementIsVisible = !elementIsVisible
+    elementIsVisible
+        ? contentTarget.classList.remove("invisible")
+        : contentTarget.classList.add("invisible")
+})
+
+eventHub.addEventListener("crimeChosen", event => {
+    const crimeThatWasChosen = event.detail.crime
+    let filteredCriminals = useCriminals()
+    if (crimeThatWasChosen !== "0") {
+        filteredCriminals = filteredCriminals.filter(criminal => {
+            if (criminal.conviction === crimeThatWasChosen) {
+                return true
+            } 
+            return false
+        })
     }
+    renderCriminals(filteredCriminals)
+})
+
+const renderCriminals = criminalsToRender => {
+    contentTarget.innerHTML = criminalsToRender.map(
+        (criminalObject) => {
+            return criminalHTML(criminalObject)
+        }
+    ).join("")
 }
 
-// filter down the list of criminals to only the criminals whose conviction is equal to the crime sent on the event detail. Loop through filtered list, create HTML for each criminal, append it to the DOM
-
-eventHub.addEventListener("crimeSelected", event => {
-    const crimeThatWasChosen = event.detail.crime
-    const filteredCriminals = copyOfCriminalsArray().filter(currentCriminal => {
-        if (currentCriminal.conviction === crimeThatWasChosen) {
-            return true
-        } 
-        return false
-    })   
-
-    // Clear inner HTML of criminal list 
-
-    contentTarget.innerHTML = ""
-
-    // Build it up again by iterating through the array 
-
-    for (const singleCriminal of filteredCriminals) {
-        contentTarget.innerHTML += criminalHTML(singleCriminal)
-    }
-})
+export const CriminalList = () => {
+    const criminals = useCriminals()
+    renderCriminals(criminals)
+}

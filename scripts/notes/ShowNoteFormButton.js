@@ -1,0 +1,1 @@
+const contentTarget = document.querySelector(".button--showNoteForm")
