@@ -1,15 +1,15 @@
-const contentTarget = document.querySelector("#button--showNotes")
+const contentTarget = document.querySelector("#toggle__noteList")
 const eventHub = document.querySelector(".container")
 
 contentTarget.addEventListener("click", ClickEvent => {
-    console.log("mo is great the click is working")
-    if (ClickEvent.target.id === "noteButton") {
-        console.log("mo is rad the button is working")
-        const showNotesEvent = new CustomEvent("noteButtonClicked")
+    if (ClickEvent.target.id === "button--showNotes") {
+        const showNotesEvent = new CustomEvent("showNotesButtonClicked")
         eventHub.dispatchEvent(showNotesEvent)
     }
 })
 
 export const ShowNotesButton = () => {
-    contentTarget.innerHTML = `<button id="noteButton">View Suspect Notes</button>`
+    contentTarget.innerHTML = `
+        <button id="button--showNotes">View Suspect Notes</button>
+    `
 }

@@ -1,0 +1,14 @@
+.filterContainer {
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 10px;
+}
+
+
+.toggleButtons {
+    display: flex;
+    margin: 5px;
+    width: 50%;
+}

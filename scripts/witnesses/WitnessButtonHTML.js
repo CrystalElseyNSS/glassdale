@@ -1,8 +1,8 @@
-const contentTarget = document.querySelector("#button--showWitnesses")
+const contentTarget = document.querySelector("#toggle__witnesses")
 const eventHub = document.querySelector(".container")
 
 contentTarget.addEventListener("click", clickEvent => {
-    if (clickEvent.target.id === "witnessButton") {
+    if (clickEvent.target.id === "button--showWitnesses") {
         const showWitnessesEvent = new CustomEvent("witnessButtonClicked")
         eventHub.dispatchEvent(showWitnessesEvent)
     }
@@ -10,6 +10,6 @@ contentTarget.addEventListener("click", clickEvent => {
 
 export const WitnessButtonHTML = () => {
     contentTarget.innerHTML = `
-        <button id="witnessButton">View Witness Statements</button>
+        <button id="button--showWitnesses">View Witness Statements</button>
     `
 }
