@@ -1,10 +1,10 @@
-export const NoteHTML = (notes) => {
+export const NoteHTML = (noteObject, criminal) => {
     return `
-        <section class="savedNote" id="savedNote--${notes.id}">
-            <p>Date: ${new Date(notes.date).toLocaleDateString()}</p>
-            <p>Suspect Name: ${notes.name}</p>
-            <p>Notes: ${notes.note}</p>
-            <p><button id="button--deleteNote#${notes.id}">Delete Note</button></p>
+        <section class="savedNote" id="savedNote--${noteObject.id}">
+            <p>Date: ${new Date(noteObject.date).toLocaleDateString()}</p>
+            <p>Suspect Name: ${criminal.name}</p>
+            <p>Notes: ${noteObject.note}</p>
+            <p><button id="button--deleteNote#${noteObject.id}">Delete Note</button></p>
         </section>
     `
 }

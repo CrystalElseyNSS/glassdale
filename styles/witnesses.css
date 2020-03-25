@@ -1,11 +1,11 @@
-.noteListContainer {
+.witnessContainer {
     display: flex;
     flex-wrap: wrap;
     flex-direction: row;
     justify-content: space-evenly;
 }
 
-.savedNote {
+.witness__Profile {
     background-color: lightgray;
     border: 1px solid midnightblue;
     font-family: 'Share Tech Mono', monospace;
@@ -14,6 +14,10 @@
     padding: 5px;
     text-align: center;
     width: 20%;
+}
+
+.header--witnessProfile {
+    color: midnightblue;
 }
 
 .invisible {

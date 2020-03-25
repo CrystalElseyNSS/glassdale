@@ -14,6 +14,7 @@ contentTarget.addEventListener("click", clickEvent => {
     }
 })
 
+
 eventHub.addEventListener("noteStateChanged", customEvent => {
     renderNoteList()
 })

@@ -27,6 +27,10 @@
     color: white;
 }
 
+.criminalProfile__jobList {
+    text-align: left;
+}
+
 .button--showAssociates {
     background-color: lightgray;
     border: 3px outset gray;
@@ -36,19 +40,6 @@
     text-transform: uppercase;
     font-weight: bolder;
     width: 80%;
-}
-
-
-
-
-
-
-
-
-
-
-ul {
-    text-align: left;
 }
 
 .invisible {
