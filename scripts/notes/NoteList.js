@@ -1,5 +1,5 @@
-import { useNotes, fetchNotes } from "./noteDataProvider.js"
-import { SavedNoteHTML } from "./SavedNoteHTML.js"
+import { useNotes, fetchNotes, deleteNote } from "./noteDataProvider.js"
+import { NoteHTML } from "./NoteHTML.js"
 import { useCriminals } from "../criminals/criminalDataProvider.js"
 
 const contentTarget = document.querySelector(".noteListContainer")
@@ -7,8 +7,15 @@ const eventHub = document.querySelector(".container")
 
 let notesAreVisible = false
 
+contentTarget.addEventListener("click", clickEvent => {
+    if (clickEvent.target.id.startsWith("button--deleteNote")) {
+        const [garbageTaco, noteID] = clickEvent.target.id.split("#")
+        deleteNote(noteID)
+    }
+})
+
 eventHub.addEventListener("noteStateChanged", customEvent => {
-    render()
+    renderNoteList()
 })
 
 eventHub.addEventListener("showNotesButtonClicked", CustomEvent => {
@@ -21,7 +28,7 @@ eventHub.addEventListener("showNotesButtonClicked", CustomEvent => {
     }
 })
 
-const renderNotesList = () => {
+const renderNoteList = () => {
     if (notesAreVisible) {
         contentTarget.classList.remove("invisible")
     } else {
@@ -39,12 +46,12 @@ const renderNotesList = () => {
                         return currentNoteObj.criminal === currentCriminalObj.id
                     }
                 )
-                return SavedNoteHTML(currentNoteObj, foundCriminal)
+                return NoteHTML(currentNoteObj, foundCriminal)
             }
         ).join("")
     })
 }
 
-export const NotesList = () => {
-    renderNotesList()
+export const NoteList = () => {
+    renderNoteList()
 }

@@ -1,5 +1,5 @@
 import { useWitnesses, fetchWitnesses } from './witnessDataProvider.js'
-import { WitnessHTML } from './Witness.js'
+import { WitnessHTML } from './WitnessHTML.js'
 
 const contentTarget = document.querySelector('.witnessContainer')
 const eventHub = document.querySelector(".container")

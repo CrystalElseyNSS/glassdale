@@ -8,7 +8,7 @@ contentTarget.addEventListener("click", clickEvent => {
     }
 })
 
-export const NoteFormButton = () => {
+export const ShowFormButton = () => {
     contentTarget.innerHTML = `
         <button id="button--showNoteForm">Log New Case Note</button>
     `

@@ -20,7 +20,7 @@ export const convictionSelector = () => {
     const renderConvictions = (convictionsCollection) => {
         contentTarget.innerHTML = `
             <select id="crimeSelectList">
-                <option value="0">Filter Suspects by Crime</option>
+                <option value="0">Filter Suspects by Conviction</option>
                 ${convictionsCollection.map(singleConviction => {
                     return `<option>${singleConviction.name}</option>`
                 })}
