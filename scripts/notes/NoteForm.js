@@ -17,11 +17,11 @@ eventHub.addEventListener("noteFormButtonClicked", customEvent => {
 
 contentTarget.addEventListener("click", clickEvent => {
     if (clickEvent.target.id === "saveNote") {
-        const criminalName = document.querySelector("#input--criminal").value 
+        const criminalName = document.querySelector("#select--criminal").value 
         const noteText = document.querySelector("#input--note").value 
         const newNote = {
                 date: Date.now(),
-                criminal: criminalName,
+                criminal: parseInt(criminalName),
                 note: noteText,  
             }
         saveNote(newNote)

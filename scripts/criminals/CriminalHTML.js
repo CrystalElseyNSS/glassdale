@@ -10,7 +10,7 @@ const workHistoryLoop = (workHistoryArray) => {
     return finalWorkHTMLString 
 }
 
-export const criminalHTML = (criminalObject) => {
+export const CriminalHTML = (criminalObject) => {
     return `
         <section class="criminal__Profile">
             <h2 class="criminalProfile--header">Potential Suspect #${criminalObject.id}: ${criminalObject.name}</h2>

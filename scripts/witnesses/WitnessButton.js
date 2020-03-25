@@ -8,7 +8,7 @@ contentTarget.addEventListener("click", clickEvent => {
     }
 })
 
-export const WitnessButtonHTML = () => {
+export const ShowWitnessesButton = () => {
     contentTarget.innerHTML = `
         <button id="button--showWitnesses">View Witness Statements</button>
     `

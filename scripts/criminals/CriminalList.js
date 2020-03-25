@@ -1,4 +1,4 @@
-import { criminalHTML } from "./CriminalHTML.js"
+import { CriminalHTML } from "./CriminalHTML.js"
 import { useCriminals, fetchCriminals } from "./criminalDataProvider.js"
 
 const contentTarget = document.querySelector('.criminalContainer')
@@ -38,10 +38,24 @@ eventHub.addEventListener("crimeChosen", event => {
     renderCriminals(filteredCriminals)
 })
 
+eventHub.addEventListener("officerChosen", event => {
+    const officerThatWasChosen = event.detail.officer
+    let filteredCriminals = useCriminals()
+    if (officerThatWasChosen !== "0") {
+        filteredCriminals = filteredCriminals.filter(criminal => {
+            if (criminal.arrestingOfficer === officerThatWasChosen) {
+                return true
+            } 
+            return false
+        })
+    }
+    renderCriminals(filteredCriminals)
+})
+
 const renderCriminals = criminalsToRender => {
     contentTarget.innerHTML = criminalsToRender.map(
         (criminalObject) => {
-            return criminalHTML(criminalObject)
+            return CriminalHTML(criminalObject)
         }
     ).join("")
 }
