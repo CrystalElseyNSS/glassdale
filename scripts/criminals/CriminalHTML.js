@@ -2,7 +2,7 @@ const workHistoryLoop = (workHistoryArray) => {
     let finalWorkHTMLString = ""
     for (const job of workHistoryArray) {
         let iteratedWorkHTMLString = 
-            `<ul>
+            `<ul class="criminalProfile__jobList>
                 <li>${job}</li>
             </ul>`
         finalWorkHTMLString += iteratedWorkHTMLString
@@ -41,7 +41,6 @@ export const CriminalHTML = (criminalObject) => {
 
             <button id="associates--${criminalObject.id}" class="button--showAssociates">View Known Associates</button>
             
-
         </section>
     `
 }
